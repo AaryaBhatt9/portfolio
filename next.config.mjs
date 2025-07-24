@@ -9,7 +9,7 @@
 
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
-const repoName = '/portfolio1'; // Your GitHub repo name
+const repoName = '/portfolio'; // Your GitHub repo name
 
 const nextConfig = {
   output: 'export',
