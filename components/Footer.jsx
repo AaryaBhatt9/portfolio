@@ -18,10 +18,11 @@ const Footer = ({isDarkMode}) => {
     <div className='text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6' >
                 <p>© 2025 Aarya Bhatt. All rights reserved. </p>
                 <ul className='flex items-center gap-10 justify-center mt-4 sm:mt-0 '>
-                    <li><a target='_blank' href="https://github.com/AaryaBhatt9">Github</a></li>
-                    <li><a target='_blank' href="http://www.linkedin.com/in/aarya-bhatt-584a21230">LinkedIn</a></li>
-                    <li><a target='_blank' href="">Leetcode</a></li>
-                    <li><a target='_blank' href="">Twitter</a></li>
+                    <li><a target='_blank' href="https://github.com/AaryaBhatt9" className='hover:text-blue-400 hover:scale-125 transition-transform duration-300'
+>Github</a></li>
+                    <li><a target='_blank' href="http://www.linkedin.com/in/aaryabhatt1" className='hover:text-blue-400 hover:scale-125 transition-transform duration-300'>LinkedIn</a></li>
+                    <li><a target='_blank' href="https://leetcode.com/u/AaryaBhatt/" className='hover:text-blue-400 hover:scale-125 transition-transform duration-300'>Leetcode</a></li>
+                    <li><a target='_blank' href="https://x.com/bhattaarya9?" className='hover:text-blue-400 hover:scale-125 transition-transform duration-300'>X</a></li> 
                 </ul>
     </div>
 

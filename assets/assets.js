@@ -106,12 +106,98 @@ export const serviceData = [
     { icon: assets.graphics_icon, title: 'Graphics design', description: 'Creative design solutions to enhance visual communication...', link: '' },
 ]
 
+// export const infoList = [
+//     // { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'HTML, CSS, JavaScript React Js, Next Js' }
+//     {
+//   icon: assets.code_icon,
+//   iconDark: assets.code_icon_dark,
+//   title: 'Languages & Tools',
+//   description: `**Programming Languages**
+// C, C++, Java, Python, JavaScript, SQL, PL/SQL
+
+// **Development & Frameworks**
+// Spring Boot, Hibernate, React.js, Node.js, Express, HTML, CSS, Bootstrap
+
+// **Databases & DevOps**
+// PostgreSQL, MongoDB, AWS (S3, Lambda), Kafka, Docker, Kubernetes, Git, GitHub, Playwright, JaCoCo, JUnit, Linux, Windows, JSON, XML, Postman
+
+// **AI/ML**
+// CNN, Transfer Learning, PyTorch, TensorFlow, Keras, NLTK, LLM, fine-tuning, Pinecone, Langchain, RAG`
+// },
+
+//     { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education',description: `B.Tech in Computer Science and Engineering
+// (Charotar University of Science and Technology, Anand, Gujarat — Aug 2020 – May 2024)
+// GPA: 9.71 / 10
+
+// M.S. in Computer Software Engineering
+// (Arizona State University, Tempe, Arizona — Jan 2025 – Dec 2026)
+// GPA: 4.0 / 4.0`  },
+//     { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built more than 5 projects' }
+// ];
+
+// export const toolsData = [
+//     assets.vscode, assets.firebase, assets.mongodb, assets.figma, assets.git
+// ];
+
+
+
 export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'HTML, CSS, JavaScript React Js, Next Js' },
-    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'B.Tech in Computer Science' },
-    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built more than 5 projects' }
+    {
+        icon: assets.code_icon,
+        iconDark: assets.code_icon_dark,
+        title: 'Languages & Tools',
+        description: `**Programming Languages**  
+- C, C++  
+- Java, Python  
+- JavaScript, SQL, PL/SQL  
+
+**Development & Frameworks**  
+- Spring Boot  
+- Hibernate, React.js  
+- Node.js, Express  
+- HTML, CSS, Bootstrap  
+
+**Databases & DevOps**  
+- PostgreSQL  
+- MongoDB, AWS (S3, Lambda)  
+- Kafka, Docker, Kubernetes  
+- Git, GitHub, Playwright  
+- JaCoCo, JUnit  
+- Linux, Windows  
+- JSON, XML, Postman  
+
+**AI/ML**  
+- CNN, Transfer Learning  
+- PyTorch, TensorFlow, Keras  
+- NLTK, LLM, fine-tuning  
+- Pinecone, Langchain, RAG`
+    },
+    {
+        icon: assets.edu_icon,
+        iconDark: assets.edu_icon_dark,
+        title: 'Education',
+        description: `**B.Tech in Computer Science and Engineering**  
+- Charotar University of Science and Technology, Anand, Gujarat  
+- Aug 2020 – May 2024  
+- GPA: 9.71 / 10  
+
+**M.S. in Computer Software Engineering**  
+- Arizona State University, Tempe, Arizona  
+- Jan 2025 – Dec 2026  
+- GPA: 4.0 / 4.0`
+    },
+    // {
+    //     icon: assets.project_icon,
+    //     iconDark: assets.project_icon_dark,
+    //     title: 'Projects',
+    //     description: 'Built more than 5 projects'
+    // }
 ];
 
 export const toolsData = [
-    assets.vscode, assets.firebase, assets.mongodb, assets.figma, assets.git
+    assets.vscode,
+    assets.firebase,
+    assets.mongodb,
+    assets.figma,
+    assets.git
 ];

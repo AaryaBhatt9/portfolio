@@ -4,7 +4,7 @@ import React from 'react'
 import {motion} from "motion/react"  
 
 
-const Work = (isDarkMode) => {
+const Project  = (isDarkMode) => {
   return (
     
  <motion.div 
@@ -14,7 +14,7 @@ const Work = (isDarkMode) => {
       transition={{duration:0.9}}
  
  
- id='work' className='w-full px-[12%] py-10 scroll-mt-20' >
+ id='project' className='w-full px-[12%] py-10 scroll-mt-20' >
     <motion.h4
     
     initial= {{opacity:0, y: -20}}
@@ -93,4 +93,4 @@ const Work = (isDarkMode) => {
   )
 }
 
-export default Work
+export default Project 

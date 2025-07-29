@@ -67,8 +67,8 @@ const [result, setResult] = useState("");
       transition={{duration:0.5, delay: 0.6}}
     
     className='text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo'> 
-    I would love to hear with you. If you have any questions, 
-    comments, or feedback, please use the form below.</motion.p>
+    I am available for Internships, freelance projects, full time opportunities. Feel free to reach out!! 
+    using the form below.</motion.p>
     
     
      

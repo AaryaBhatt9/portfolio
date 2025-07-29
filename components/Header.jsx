@@ -30,10 +30,45 @@
 // export default Header
 import { assets } from '@/assets/assets'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {motion} from "motion/react"  
 
-const Header = () => {
+const Header = ({ isDarkMode }) => {
+  const roles = [
+    "Software Developer.",
+    "AI Engineer.",
+    "Data Enthusiast.", 
+    
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const getCircularIndex = (baseIndex, offset, length) => {
+    return (baseIndex + offset + length) % length;
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const [screenGap, setScreenGap] = useState(50);
+
+  useEffect(() => {
+    const updateGap = () => {
+      const width = window.innerWidth;
+      if (width < 480) setScreenGap(24); // very small phones
+      else if (width < 640) setScreenGap(30); // phones
+      else if (width < 768) setScreenGap(40); // tablets
+      else if (width < 1024) setScreenGap(46); // md
+      else setScreenGap(52); // large screens
+    };
+
+    updateGap();
+    window.addEventListener("resize", updateGap);
+    return () => window.removeEventListener("resize", updateGap);
+  }, []); 
   return (
     <div className='w-11/12 max-w-3xl text-center mx-auto min-h-screen flex flex-col items-center justify-start gap-4 pt-20 sm:pt-24 md:pt-28'>
       {/* Enlarged profile image with spacing */} 
@@ -60,15 +95,52 @@ const Header = () => {
         <Image src={assets.hand_icon} alt='Wave' className='w-6' />
       </motion.h3>
 
-      <motion.h1 
+      {/* Centered Carousel */}
+
+    <div
+        className="relative h-[200px] w-full max-w-[800px] min-w-[300px] px-2 flex items-center justify-center overflow-hidden 
+  -mt-16 sm:-mt-10 md:-mt-12"
+      >
+        {[...Array(3)].map((_, i) => {
+          const offset = i - 1;
+          const index = getCircularIndex(currentIndex, offset, roles.length);
+          const role = roles[index];
+
+          const offsetY = offset * screenGap;
+          let style = "opacity-0 scale-90 blur-sm z-0";
+          if (offset === 0) {
+            style = "opacity-100 scale-135 blur-0 z-20";
+          } else {
+            style = `opacity-30 scale-20 blur-sm z-10 ${
+              isDarkMode ? "text-white" : "text-gray-900"
+            }`;
+          }
+          return (
+            <motion.div
+              key={index}
+              className={`absolute whitespace-nowrap transition-all duration-700 ease-in-out text-4xl sm:text-5xl md:text-5xl font-Ovo ${style}`}
+              style={{
+                transform: `translate(-50%, ${offsetY}px)`,
+                left: "50%",
+                top: "50%",
+              }}
+            >
+              {role}
+            </motion.div>
+          );
+        })}
+      </div>
+
+
+      {/* <motion.h1 
       
       initial= {{y:-30, opacity:0}}
       whileInView={{y:0, opacity:1}}
       transition={{duration:0.6, delay:0.5}}
 
       className='text-3xl sm:text-6xl lg:text-[66px] font-Ovo'>
-        Software Developer based in California
-      </motion.h1>
+        Software Developer & AI Engineer 
+      </motion.h1> */}
 
       <motion.p 
 
@@ -82,6 +154,8 @@ const Header = () => {
         I have 10 years of experience at companies such as Amazon and Google.
       </motion.p>
 
+          {/* Buttons */}
+
       <div className='flex flex-col sm:flex-row items-center gap-4 mt-4'>
         <motion.a
 
@@ -89,12 +163,13 @@ const Header = () => {
       whileInView={{y:0, opacity:1}}
       transition={{duration:0.5, delay:0.8}}
 
-          href="#contact"
+          href="#project"
           className='px-10 py-3 border border-white rounded-full bg-black text-white flex items-center gap-2 dark:bg-transparent'
         >
-          Contact Me
+          My Work 
           <Image src={assets.right_arrow_white} alt='' className='w-4' />
         </motion.a>
+        
         <motion.a
 
       initial= {{y:30, opacity:0}}
@@ -109,7 +184,62 @@ const Header = () => {
           My Resume
           <Image src={assets.download_icon} alt='' className='w-4' />
         </motion.a>
-      </div>
+      </div> 
+
+        {/* socials */}
+
+     <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+        className="inline-flex rounded-md shadow-sm mt-6"
+        role="group"
+      >
+        <a
+          href="http://www.linkedin.com/in/aaryabhatt1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white"
+        >
+          <Image
+            src={assets.linkedin}
+            alt="LinkedIn"
+            className="w-4 h-4 mr-2"
+          />
+          LinkedIn
+        </a>
+
+        <a
+          href="https://github.com/AaryaBhatt9"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white"
+        >
+          <Image
+            // src={isDarkMode ? assets.github : assets.github_light}
+            alt="GitHub"
+            className="w-4 h-4 mr-2"
+          />
+          GitHub
+        </a>
+
+        <a
+          href="https://leetcode.com/u/AaryaBhatt/" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white"
+        >
+          <Image
+            src={assets.leetcode}
+            alt="LeetCode"
+            className="w-4 h-4 mr-2"
+          />
+          LeetCode
+        </a>
+      </motion.div>
+
+
+
     </div>
   );
 };
